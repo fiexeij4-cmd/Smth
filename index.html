@@ -911,55 +911,14 @@ footer {
 
   </div>
 
-  <button onclick="goTo(6)">
-  CONTINUE TO YOUR LAST WISH →
-  </button>
+  <button onclick="goTo(4)">← BACK TO YOUR BIRTHDAY</button>
 
 </section>
 
 <footer>
   MADE JUST FOR SHIZUKA, MWAH · 11/13/12
 </footer>
-<!-- PAGE 6: ONE LAST WISH -->
 
-<section class="page final-page" id="page6">
-
-  <div class="eyebrow">04 — ONE LAST LITTLE THING</div>
-
-  <h2>Make a wish.</h2>
-
-  <div class="divider"></div>
-
-  <p class="intro">
-    Close your eyes for a moment, Shizu.
-    Think of something your heart truly wishes for.
-    You deserve every beautiful thing in this world. 💗
-  </p>
-
-  <textarea
-    id="wishInput"
-    placeholder="Write your little wish here...">
-  </textarea>
-
-  <button class="primary" onclick="makeWish()">
-    SEND YOUR WISH ✨
-  </button>
-
-  <div id="wishResult" style="display:none; margin-top:35px;">
-    <h3>A wish for you. ♡</h3>
-    <p class="intro">
-      May the universe hear your wish
-      and bring you all the happiness
-      you deserve. Keep smiling, Shizu. 💗
-    </p>
-  </div>
-
-  <div class="button-row">
-    <button onclick="goTo(5)">← BACK</button>
-    <button class="primary" onclick="goTo(1)">READ AGAIN ↗</button>
-  </div>
-
-</section>
 <script>
 function goTo(number) {
   document.querySelectorAll('.page').forEach(page => {
@@ -970,7 +929,7 @@ function goTo(number) {
     .classList.add('active');
 
   document.getElementById('counter').textContent =
-    '0' + number + ' / 06';
+    '0' + number + ' / 05';
 
   window.scrollTo({
     top: 0,
@@ -984,33 +943,9 @@ function revealStar() {
   if (!reveal.classList.contains('show')) {
     reveal.classList.add('show');
   }
-
-  // Show the sixth page after revealing the star
-  setTimeout(() => {
-    goTo(6);
-  }, 3500);
 }
-
-function makeWish() {
-  const wish = document.getElementById('wishInput');
-  const result = document.getElementById('wishResult');
-
-  if (wish.value.trim() === '') {
-    wish.placeholder = 'Write your wish first, Shizu! 💗';
-    wish.focus();
-    return;
-  }
-
-  result.style.display = 'block';
-
-  wish.disabled = true;
-
-  document.querySelector('#page6 button.primary').textContent =
-    'WISH SENT ♡';
-}
-</script>
-  
 </script>
 
 </body>
-                                                      </html>
+  </html>
+  
