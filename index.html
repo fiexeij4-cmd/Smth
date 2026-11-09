@@ -911,7 +911,9 @@ footer {
 
   </div>
 
-  <button onclick="goTo(4)">← BACK TO YOUR BIRTHDAY</button>
+  <button onclick="goTo(6)">
+  CONTINUE TO YOUR LAST WISH →
+  </button>
 
 </section>
 
@@ -968,7 +970,7 @@ function goTo(number) {
     .classList.add('active');
 
   document.getElementById('counter').textContent =
-    '0' + number + ' / 05';
+    '0' + number + ' / 06';
 
   window.scrollTo({
     top: 0,
@@ -982,7 +984,32 @@ function revealStar() {
   if (!reveal.classList.contains('show')) {
     reveal.classList.add('show');
   }
+
+  // Show the sixth page after revealing the star
+  setTimeout(() => {
+    goTo(6);
+  }, 3500);
 }
+
+function makeWish() {
+  const wish = document.getElementById('wishInput');
+  const result = document.getElementById('wishResult');
+
+  if (wish.value.trim() === '') {
+    wish.placeholder = 'Write your wish first, Shizu! 💗';
+    wish.focus();
+    return;
+  }
+
+  result.style.display = 'block';
+
+  wish.disabled = true;
+
+  document.querySelector('#page6 button.primary').textContent =
+    'WISH SENT ♡';
+}
+</script>
+  
 </script>
 
 </body>
