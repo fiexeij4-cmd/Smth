@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,11 +15,13 @@
 }
 
 :root {
-  --pink: #b77e88;
-  --dark: #554347;
-  --muted: #987f82;
-  --cream: #fffafa;
-  --background: #fcf4f3;
+  --pink: #d4b477;
+  --dark: #e8e0d5;
+  --muted: #a69a91;
+  --cream: #17151d;
+  --background: #0b0a10;
+  --gold: #e5c995;
+  --border: #39303a;
 }
 
 body {
@@ -38,10 +39,10 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #fffafaee;
-  backdrop-filter: blur(10px);
+  background: #0b0a10eF;
+  backdrop-filter: blur(18px);
   z-index: 10;
-  border-bottom: 1px solid #f1e3e2;
+  border-bottom: 1px solid #302833;
 }
 
 .logo {
@@ -62,18 +63,32 @@ nav {
   padding: 110px 8% 100px;
   max-width: 900px;
   margin: auto;
-  animation: enter .6s ease;
 }
 
 .page.active {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  animation: cinematicEnter .85s cubic-bezier(.16,1,.3,1) both;
 }
 
-@keyframes enter {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: translateY(0); }
+@keyframes cinematicEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(35px) scale(.97);
+    filter: blur(8px);
+  }
+
+  60% {
+    opacity: .8;
+    filter: blur(1px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
 }
 
 .eyebrow {
@@ -90,13 +105,13 @@ h1, h2 {
 
 h1 {
   font-size: clamp(65px, 13vw, 110px);
-  color: var(--pink);
+  color: var(--gold);
   line-height: 1.1;
 }
 
 h2 {
   font-size: clamp(38px, 8vw, 60px);
-  color: var(--pink);
+  color: var(--gold);
   margin-bottom: 25px;
 }
 
@@ -110,8 +125,9 @@ h2 {
 .divider {
   width: 55px;
   height: 1px;
-  background: #d9afb4;
+  background: var(--gold);
   margin: 30px 0;
+  opacity: .65;
 }
 
 .button-row {
@@ -122,38 +138,42 @@ h2 {
 }
 
 button {
-  border: 1px solid #d8afb4;
+  border: 1px solid #786344;
   background: transparent;
-  color: var(--pink);
+  color: var(--gold);
   padding: 14px 23px;
   cursor: pointer;
   font-size: 11px;
   letter-spacing: 1px;
-  transition: .3s;
+  transition: .35s ease;
 }
 
 button:hover {
-  background: var(--pink);
-  color: white;
+  background: var(--gold);
+  color: #100e13;
+  border-color: var(--gold);
+  box-shadow: 0 0 25px #d4b47725;
 }
 
 .primary {
-  background: var(--pink);
-  color: white;
+  background: #c5a36b;
+  color: #100e13;
+  border-color: #c5a36b;
 }
 
 .paper {
-  background: var(--cream);
+  background: #15131b;
   padding: clamp(25px, 6vw, 55px);
-  border: 1px solid #f0e1df;
-  box-shadow: 0 15px 40px #a77c7910;
+  border: 1px solid #39303a;
+  box-shadow: 0 20px 60px #00000050;
+  position: relative;
 }
 
 .paper p {
   font-family: 'Playfair Display', serif;
   font-size: 17px;
   line-height: 2.1;
-  color: #705d60;
+  color: #c9bdb3;
 }
 
 .paper p + p {
@@ -163,7 +183,7 @@ button:hover {
 .signature {
   font-family: 'Playfair Display', serif;
   font-style: italic;
-  color: var(--pink);
+  color: var(--gold);
   margin-top: 35px;
   font-size: 22px;
 }
@@ -176,14 +196,21 @@ button:hover {
 }
 
 .item {
-  background: #fffafa;
-  border: 1px solid #f0e1df;
+  background: #15131b;
+  border: 1px solid #39303a;
   padding: 25px 20px;
   min-height: 155px;
+  transition: .35s ease;
+}
+
+.item:hover {
+  border-color: #a88a5b;
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px #00000040;
 }
 
 .item span {
-  color: #c18e97;
+  color: #c5a36b;
   font-size: 11px;
   letter-spacing: 2px;
 }
@@ -193,7 +220,7 @@ button:hover {
   font-weight: 400;
   font-size: 21px;
   margin: 16px 0 10px;
-  color: #a8757e;
+  color: var(--gold);
 }
 
 .item p {
@@ -224,7 +251,7 @@ footer {
   text-align: center;
   font-size: 9px;
   letter-spacing: 3px;
-  color: #bd9da1;
+  color: #807064;
   padding: 25px;
 }
 
@@ -242,6 +269,7 @@ footer {
     min-height: auto;
   }
 }
+
 </style>
 </head>
 
@@ -258,7 +286,7 @@ footer {
 
   <div class="eyebrow">NOVEMBER 13 · A SPECIAL DAY</div>
 
-  <h1>Shizuka<span style="color:#d7aeb3">.</span></h1>
+  <h1>Shizuka<span style="color:#c5a36b">.</span></h1>
 
   <div class="divider"></div>
 
@@ -429,7 +457,7 @@ footer {
   <div class="divider"></div>
 
   <p style="font-family:'Playfair Display',serif;
-            font-size:23px;color:#b77e88">
+            font-size:23px;color:#d4b477">
     Happy Birthday, Shizuka.
   </p>
 
@@ -464,4 +492,4 @@ function goTo(number) {
 </script>
 
 </body>
-</html>
+  </html>
