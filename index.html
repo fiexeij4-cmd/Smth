@@ -15,20 +15,66 @@
 }
 
 :root {
-  --pink: #d4b477;
-  --dark: #e8e0d5;
-  --muted: #a69a91;
-  --cream: #17151d;
-  --background: #0b0a10;
-  --gold: #e5c995;
-  --border: #39303a;
+  --pink: #e879a8;
+  --dark: #553b58;
+  --muted: #987d9e;
+  --cream: #fff7fc;
+  --background: #fff0f7;
+  --gold: #dca7cf;
+  --border: #f0c8df;
+  --purple: #a98bd9;
+  --blue: #a5c9ed;
 }
 
 body {
-  background: var(--background);
+  background:
+    radial-gradient(ellipse at 10% 10%, #fce0f0 0%, transparent 40%),
+    radial-gradient(ellipse at 90% 80%, #e9e0ff 0%, transparent 40%),
+    var(--background);
   color: var(--dark);
   font-family: 'DM Sans', sans-serif;
   min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Birthday atmosphere */
+
+body::before {
+  content: "✦  ✧  ♡  ✦  ✧  ♡  ✦";
+  position: fixed;
+  top: 17%;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: #e8a6cb;
+  opacity: .23;
+  font-size: 22px;
+  letter-spacing: 25px;
+  pointer-events: none;
+  z-index: 0;
+  animation: sparkle 5s ease-in-out infinite alternate;
+}
+
+body::after {
+  content: "🎀";
+  position: fixed;
+  right: 5%;
+  bottom: 7%;
+  font-size: 40px;
+  opacity: .15;
+  pointer-events: none;
+  animation: float 4s ease-in-out infinite;
+  z-index: 0;
+}
+
+@keyframes sparkle {
+  from { opacity: .12; transform: translateY(0); }
+  to { opacity: .35; transform: translateY(12px); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(-8deg); }
+  50% { transform: translateY(-18px) rotate(8deg); }
 }
 
 nav {
@@ -39,10 +85,11 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #0b0a10eF;
+  background: #fff7f9eF;
   backdrop-filter: blur(18px);
   z-index: 10;
-  border-bottom: 1px solid #302833;
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 5px 25px #d58bb315;
 }
 
 .logo {
@@ -63,25 +110,33 @@ nav {
   padding: 110px 8% 100px;
   max-width: 900px;
   margin: auto;
+  position: relative;
+  z-index: 1;
 }
 
 .page.active {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  animation: cinematicEnter .85s cubic-bezier(.16,1,.3,1) both;
+  animation: birthdayEnter .85s cubic-bezier(.16,1,.3,1) both;
 }
 
-@keyframes cinematicEnter {
+/* New birthday page transition */
+
+@keyframes birthdayEnter {
   0% {
     opacity: 0;
-    transform: translateY(35px) scale(.97);
-    filter: blur(8px);
+    transform: translateY(45px) scale(.94) rotate(-1deg);
+    filter: blur(7px);
   }
 
-  60% {
+  55% {
     opacity: .8;
     filter: blur(1px);
+  }
+
+  80% {
+    transform: translateY(-4px) scale(1.005) rotate(0deg);
   }
 
   100% {
@@ -105,13 +160,13 @@ h1, h2 {
 
 h1 {
   font-size: clamp(65px, 13vw, 110px);
-  color: var(--gold);
+  color: #df83b2;
   line-height: 1.1;
 }
 
 h2 {
   font-size: clamp(38px, 8vw, 60px);
-  color: var(--gold);
+  color: #d875a5;
   margin-bottom: 25px;
 }
 
@@ -124,10 +179,10 @@ h2 {
 
 .divider {
   width: 55px;
-  height: 1px;
-  background: var(--gold);
+  height: 2px;
+  background: linear-gradient(90deg, var(--pink), var(--purple));
   margin: 30px 0;
-  opacity: .65;
+  border-radius: 10px;
 }
 
 .button-row {
@@ -138,42 +193,46 @@ h2 {
 }
 
 button {
-  border: 1px solid #786344;
-  background: transparent;
-  color: var(--gold);
+  border: 1px solid #e5a5c7;
+  background: #fff9fc;
+  color: #d875a5;
   padding: 14px 23px;
   cursor: pointer;
   font-size: 11px;
   letter-spacing: 1px;
   transition: .35s ease;
+  border-radius: 30px;
 }
 
 button:hover {
-  background: var(--gold);
-  color: #100e13;
-  border-color: var(--gold);
-  box-shadow: 0 0 25px #d4b47725;
+  background: #e879a8;
+  color: white;
+  border-color: #e879a8;
+  box-shadow: 0 8px 25px #e879a840;
+  transform: translateY(-3px);
 }
 
 .primary {
-  background: #c5a36b;
-  color: #100e13;
-  border-color: #c5a36b;
+  background: linear-gradient(135deg, #ec91b9, #c49be7);
+  color: white;
+  border: none;
+  box-shadow: 0 5px 18px #e879a830;
 }
 
 .paper {
-  background: #15131b;
+  background: linear-gradient(145deg, #fffafd, #fff3fa);
   padding: clamp(25px, 6vw, 55px);
-  border: 1px solid #39303a;
-  box-shadow: 0 20px 60px #00000050;
+  border: 1px solid #f2cde0;
+  box-shadow: 0 18px 45px #cf8bb51c;
   position: relative;
+  border-radius: 16px;
 }
 
 .paper p {
   font-family: 'Playfair Display', serif;
   font-size: 17px;
   line-height: 2.1;
-  color: #c9bdb3;
+  color: #765c78;
 }
 
 .paper p + p {
@@ -183,7 +242,7 @@ button:hover {
 .signature {
   font-family: 'Playfair Display', serif;
   font-style: italic;
-  color: var(--gold);
+  color: var(--pink);
   margin-top: 35px;
   font-size: 22px;
 }
@@ -196,21 +255,22 @@ button:hover {
 }
 
 .item {
-  background: #15131b;
-  border: 1px solid #39303a;
+  background: linear-gradient(145deg, #fffafd, #fff3fa);
+  border: 1px solid #f0cce1;
   padding: 25px 20px;
   min-height: 155px;
   transition: .35s ease;
+  border-radius: 14px;
 }
 
 .item:hover {
-  border-color: #a88a5b;
-  transform: translateY(-4px);
-  box-shadow: 0 12px 30px #00000040;
+  border-color: #dc91bd;
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px #d58bb52b;
 }
 
 .item span {
-  color: #c5a36b;
+  color: #c18bce;
   font-size: 11px;
   letter-spacing: 2px;
 }
@@ -220,7 +280,7 @@ button:hover {
   font-weight: 400;
   font-size: 21px;
   margin: 16px 0 10px;
-  color: var(--gold);
+  color: #d875a5;
 }
 
 .item p {
@@ -251,8 +311,10 @@ footer {
   text-align: center;
   font-size: 9px;
   letter-spacing: 3px;
-  color: #807064;
+  color: #c18ba9;
   padding: 25px;
+  position: relative;
+  z-index: 1;
 }
 
 @media(max-width: 500px) {
@@ -267,6 +329,13 @@ footer {
 
   .item {
     min-height: auto;
+  }
+}
+
+@media(prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
   }
 }
 
@@ -286,7 +355,7 @@ footer {
 
   <div class="eyebrow">NOVEMBER 13 · A SPECIAL DAY</div>
 
-  <h1>Shizuka<span style="color:#c5a36b">.</span></h1>
+  <h1>Shizuka<span style="color:#c49be7">.</span></h1>
 
   <div class="divider"></div>
 
@@ -457,7 +526,7 @@ footer {
   <div class="divider"></div>
 
   <p style="font-family:'Playfair Display',serif;
-            font-size:23px;color:#d4b477">
+            font-size:23px;color:#e879a8">
     Happy Birthday, Shizuka.
   </p>
 
@@ -492,4 +561,4 @@ function goTo(number) {
 </script>
 
 </body>
-  </html>
+      </html>
