@@ -1,1 +1,226 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Shizuka ♡</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #fcf5f4;
+  color: #514144;
+  font-family: 'DM Sans', sans-serif;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 650px;
+  margin: auto;
+  padding: 25px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 25px 0;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #a98589;
+}
+
+.hero {
+  min-height: 75vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  animation: fade 1.5s ease;
+}
+
+.date {
+  font-size: 10px;
+  letter-spacing: 4px;
+  color: #bd8e94;
+  margin-bottom: 30px;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(55px, 13vw, 90px);
+  font-weight: 400;
+  color: #ad7781;
+}
+
+.hero p {
+  margin-top: 20px;
+  font-size: 13px;
+  color: #967f82;
+  letter-spacing: 1px;
+}
+
+.line {
+  width: 40px;
+  height: 1px;
+  background: #d8aeb2;
+  margin: 35px auto;
+}
+
+button {
+  border: 1px solid #d7afb3;
+  background: transparent;
+  padding: 13px 25px;
+  color: #a6757d;
+  letter-spacing: 1px;
+  font-size: 11px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+button:hover {
+  background: #ad7781;
+  color: white;
+}
+
+.letter {
+  background: #fffafa;
+  border: 1px solid #f0e2e1;
+  padding: 35px 28px;
+  margin: 20px 0 70px;
+  text-align: center;
+  display: none;
+  animation: fade 1s ease;
+}
+
+.letter h2 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  font-size: 29px;
+  color: #ad7781;
+  margin-bottom: 25px;
+}
+
+.letter p {
+  font-size: 14px;
+  line-height: 2.1;
+  color: #756366;
+}
+
+.signature {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 20px;
+  color: #ad7781;
+  margin-top: 25px;
+}
+
+footer {
+  text-align: center;
+  padding: 30px 0;
+  color: #bd9fa2;
+  font-size: 10px;
+  letter-spacing: 3px;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<nav>
+  <span>A LITTLE SOMETHING</span>
+  <span>13.11</span>
+</nav>
+
+<section class="hero">
+
+  <div class="date">THURSDAY · NOVEMBER 13</div>
+
+  <h1>Shizuka.</h1>
+
+  <p>Another year. Another beautiful chapter.</p>
+
+  <div class="line"></div>
+
+  <p>Happy Birthday ♡</p>
+
+  <br><br>
+
+  <button onclick="openLetter()">READ YOUR LETTER →</button>
+
+</section>
+
+<section class="letter" id="letter">
+
+  <h2>Dear Shizuka,</h2>
+
+  <p>
+    Happy Birthday!
+
+    <br><br>
+
+    I hope life treats you kindly, that you find
+    reasons to smile even on ordinary days,
+    and that everything you've been quietly
+    wishing for finds its way to you.
+
+    <br><br>
+
+    Thank you for being a part of my life.
+    I genuinely appreciate you, more than
+    words can properly explain.
+
+    <br><br>
+
+    Here's to another year of memories,
+    laughter, and everything good.
+
+  </p>
+
+  <div class="signature">With love ♡</div>
+
+</section>
+
+<footer>
+  MADE JUST FOR SHIZUKA
+</footer>
+
+</div>
+
+<script>
+function openLetter() {
+  const letter = document.getElementById("letter");
+
+  letter.style.display = "block";
+
+  letter.scrollIntoView({
+    behavior: "smooth",
+    block: "center"
+  });
+}
+</script>
+
+</body>
+  </html>
+  
