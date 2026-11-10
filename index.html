@@ -558,7 +558,7 @@ body.locked{overflow:hidden}
   if(lockForm){
     lockForm.addEventListener("submit",function(e){
       e.preventDefault();
-      if(lockInput.value==="9002"){
+      if(lockInput.value==="2012"){
         lockScreen.style.transition="opacity .45s ease,visibility .45s ease";
         lockScreen.style.opacity="0";lockScreen.style.visibility="hidden";
         document.body.classList.remove("locked");
@@ -570,7 +570,7 @@ body.locked{overflow:hidden}
     });
     lockInput.addEventListener("input",function(){
       lockInput.removeAttribute("aria-invalid");
-      $("lockError").textContent="(ask Aruu for the code nicely 🐱)";
+      $("lockError").textContent="(Ask Aruu for the code nicely 🐱)";
     });
   }
 
